@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Videoclub - Inicio</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <h1>🎬 Videoclub Management System</h1>
+            <ul>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/cintas">Cintas</a></li>
+                <li><a href="/cintas/nuevo" class="btn-nuevo">+ Nueva Cinta</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="hero">
+            <h2>Bienvenido al Sistema de Videoclub</h2>
+            <p>Gestiona tu catálogo de películas de forma eficiente</p>
+            <a href="/cintas" class="btn btn-primary">Ir a Cintas</a>
+        </section>
+
+        <section class="info">
+            <div class="info-card">
+                <h3>📚 Gestión de Cintas</h3>
+                <p>Organiza tu inventario de películas con código, ubicación y detalles</p>
+            </div>
+            <div class="info-card">
+                <h3>🔍 Búsqueda Rápida</h3>
+                <p>Encuentra películas por título, director o género</p>
+            </div>
+            <div class="info-card">
+                <h3>💾 Base de Datos Oracle</h3>
+                <p>Almacenamiento seguro en Oracle Autonomous Database</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Videoclub Management System | Spring Boot + Thymeleaf + Oracle</p>
+    </footer>
+</body>
+</html>

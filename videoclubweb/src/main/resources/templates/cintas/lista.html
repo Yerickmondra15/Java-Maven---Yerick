@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Cintas - Videoclub</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <h1>🎬 Videoclub Management System</h1>
+            <ul>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/cintas">Cintas</a></li>
+                <li><a href="/cintas/nuevo" class="btn-nuevo">+ Nueva Cinta</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="cintas-section">
+            <h2>📽️ Listado de Cintas</h2>
+            
+            <div th:if="${cintas.isEmpty()}" class="alert alert-info">
+                <p>No hay cintas registradas. <a href="/cintas/nuevo">Crear la primera cinta</a></p>
+            </div>
+
+            <div th:if="${!cintas.isEmpty()}" class="table-responsive">
+                <table class="tabla-cintas">
+                    <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Título</th>
+                            <th>Director</th>
+                            <th>Año</th>
+                            <th>Género</th>
+                            <th>Ubicación</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="cinta : ${cintas}" class="fila-cinta">
+                            <td th:text="${cinta.codigoCinta}"></td>
+                            <td th:text="${cinta.titulo}"></td>
+                            <td th:text="${cinta.director}"></td>
+                            <td th:text="${cinta.año}"></td>
+                            <td th:text="${cinta.genero}"></td>
+                            <td>
+                                <span th:text="${cinta.estanteria}"></span> - 
+                                <span th:text="${cinta.estante}"></span> - 
+                                <span th:text="${cinta.fila}"></span>
+                            </td>
+                            <td class="acciones">
+                                <a th:href="@{/cintas/editar/{id}(id=${cinta.codigoCinta})}" class="btn btn-edit">✏️ Editar</a>
+                                <a th:href="@{/cintas/eliminar/{id}(id=${cinta.codigoCinta})}" class="btn btn-delete" onclick="return confirm('¿Estás seguro?')">🗑️ Eliminar</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Videoclub Management System | Spring Boot + Thymeleaf + Oracle</p>
+    </footer>
+</body>
+</html>
